@@ -38,7 +38,7 @@
 
 .menu__link--active-link,
 .menu__link--active-branch {
-  font-weight: bold;
+  /* Bold font weight removed for desktop menu */
 }
 
 @media (min-width: 768px) and (max-width: 1150px) {
@@ -68,12 +68,8 @@
 }
 
 .menu__item--depth-1 > .menu__link--active-link:after {
-  bottom: -3px;
-  content: '';
-  height: 2px;
-  left: 0;
-  position: absolute;
-  width: 100%;
+  /* Underline removed for desktop menu */
+  content: none;
 }
 
 @media (max-width: 767px) {
