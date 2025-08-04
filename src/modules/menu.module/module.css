@@ -51,7 +51,7 @@
   .menu__wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
   }
 
   .menu__item {
@@ -83,11 +83,11 @@
   .menu__item--depth-1 {
     border-top: none;
     padding: 0;
-    margin: 0 0.25rem;
+    margin: 0 0.1rem;
   }
 
   .menu__item--depth-1 > .menu__link {
-    padding: 0.35rem 0.5rem;
+    padding: 0.35rem 0.3rem;
     text-align: center;
     white-space: nowrap;
   }
