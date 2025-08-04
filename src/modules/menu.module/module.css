@@ -49,12 +49,13 @@
 
 @media (max-width: 767px) {
   .menu__item {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
+    margin-right: 1rem;
   }
 
   .menu__link {
-    display: block;
+    display: inline-block;
     font-size: 1.083rem;
   }
 }
@@ -74,12 +75,12 @@
 
 @media (max-width: 767px) {
   .menu__item--depth-1 {
-    border-top: 2px solid #CED4DB;
-    padding: 0;
+    border-top: none;
+    padding: 0.35rem 0.5rem;
   }
 
   .menu__item--depth-1 > .menu__link {
-    padding: 0.35rem 1.225rem;
+    padding: 0.35rem 0.5rem;
   }
 
   .menu__item--depth-1 > .menu__link--active-link:after {
