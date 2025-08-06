@@ -116,7 +116,7 @@
         "type": "number",
         "display": "slider",
         "max": 2500,
-        "min": 900,
+        "min": 600,
         "suffix": "px",
         "default": 1240
       }
