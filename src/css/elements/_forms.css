@@ -128,6 +128,16 @@ form .hs-richtext img {
   margin-left: 1rem !important;
 }
 
+/* Custom Legal Consent Module */
+.legal-consent-container {
+  margin-bottom: 1rem;
+}
+
+/* Hide default HubSpot legal consent text when using custom module */
+.hs-form .legal-consent-container .hs-richtext {
+  display: none;
+}
+
 /* Validation */
 
 .hs-form-required {

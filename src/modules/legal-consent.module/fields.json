@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Link text",
+    "name": "link_text",
+    "type": "text",
+    "required": true,
+    "default": "How we handle your data"
+  },
+  {
+    "label": "Legal text content",
+    "name": "legal_content",
+    "type": "richtext",
+    "required": true,
+    "default": "<p>By submitting this form, you agree to our terms of service and privacy policy. We will use your information to contact you about our services and may share it with our partners. You can unsubscribe at any time.</p>"
+  },
+  {
+    "label": "Show expanded by default",
+    "name": "expanded_default",
+    "type": "boolean",
+    "default": false
+  }
+]
