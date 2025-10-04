@@ -1,0 +1,115 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+      .legal-consent {
+        font-size: 0.875rem;
+        margin: 1rem 0;
+      }
+
+      .legal-consent__toggle {
+        background: none;
+        border: none;
+        color: #0066cc;
+        cursor: pointer;
+        text-decoration: underline;
+        font-size: 0.875rem;
+        padding: 0;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .legal-consent__toggle:hover {
+        color: #004499;
+      }
+
+      .legal-consent__toggle:focus {
+        outline: 2px solid #0066cc;
+        outline-offset: 2px;
+      }
+
+      .legal-consent__arrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+        font-size: 0.75rem;
+      }
+
+      .legal-consent__toggle[aria-expanded="true"] .legal-consent__arrow {
+        transform: rotate(90deg);
+      }
+
+      .legal-consent__content {
+        margin-top: 0.75rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        line-height: 1.4;
+      }
+
+      .legal-consent__content[hidden] {
+        display: none;
+      }
+
+      .legal-consent__content p {
+        margin: 0 0 0.75rem 0;
+      }
+
+      .legal-consent__content p:last-child {
+        margin-bottom: 0;
+      }
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Legal consent component #}
+
+<div class="legal-consent">
+  <button 
+    class="legal-consent__toggle"
+    type="button"
+    aria-expanded="{{ module.expanded_default|string|lower }}"
+    data-legal-consent-toggle
+  >
+    <span class="legal-consent__arrow">▶</span>
+    {{ module.link_text|escape_html }}
+  </button>
+  
+  <div 
+    class="legal-consent__content"
+    data-legal-consent-content
+    {% if not module.expanded_default %}hidden{% endif %}
+  >
+    {{ module.legal_content }}
+  </div>
+</div>
+
+{# JavaScript for toggle functionality #}
+
+{% require_js %}
+  <script>
+    (function() {
+      const toggles = document.querySelectorAll('[data-legal-consent-toggle]');
+      
+      toggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          const content = toggle.parentElement.querySelector('[data-legal-consent-content]');
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          
+          // Toggle visibility
+          if (isExpanded) {
+            content.hidden = true;
+            toggle.setAttribute('aria-expanded', 'false');
+          } else {
+            content.hidden = false;
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+{% end_require_js %}
